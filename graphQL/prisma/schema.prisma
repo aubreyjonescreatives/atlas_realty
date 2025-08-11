@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+
+//datasource db {
+//  provider = "sqlite"
+//  url      = env("DATABASE_URL")
+//}
+
+
+
+model Gamer {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  gamer  String?
+  avatar String?
+  gamerlevel Int? 
+  title String? 
+  description String? 
+  defaultCredits Int?
+  games Game[]
+  
+}
+
+
+model Game {
+  id        Int     @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  gamerlevel Int? 
+  title String? 
+  image String?
+  price String?
+  link String? 
+  gameformat String? 
+  description String? 
+  defaultCredits String? 
+  gamer    Gamer?   @relation(fields: [gamerId], references: [id])
+  gamerId Int? 
+  email String?
+  avatar String?
+  
+}
