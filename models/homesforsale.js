@@ -35,3 +35,5 @@ const homesforsaleSchema = new Schema ({
         required: false
     }, 
 })
+
+export const HomesforSale = mongoose.model('homesforsale.js', homesforsaleSchema)

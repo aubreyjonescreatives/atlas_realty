@@ -2,8 +2,9 @@ import express from 'express';
 //import path from 'path';
 //import helmet from 'helmet'; 
 //import compression from 'compression'; 
+import mongoose from 'mongoose'; 
 import * as dotenv from 'dotenv'; 
-import cors from 'cors'; 
+import cors from 'cors';
 
 
 //hidden files
@@ -42,7 +43,7 @@ server.use(express.static('public'))
 
 //homesAPIRouter
 
-server.use('/homesforsale', homesForSaleRouter)
+//server.use('/homesforsale', homesForSaleRouter)
 
 
 //if Page Not Found: 
@@ -63,7 +64,7 @@ mongoose.connect(process.env.DB_CONN_STRING, {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
 }).then(() => {
-    server.listen(PORT, () => console.log(`Server Started: ${PORT}`));
+    server.listen(port, () => console.log(`Server Started: ${port}`));
 }).catch((error) => console.log(`${error} sorry not sorry. That didn't work. Try again.`)); 
 
 
