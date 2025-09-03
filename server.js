@@ -1,16 +1,19 @@
+import * as dotenv from 'dotenv';
 import express from 'express'; 
+import mongoose from 'mongoose'; 
+import cors from 'cors';
 //import path from 'path';
 //import helmet from 'helmet'; 
 //import compression from 'compression'; 
-import mongoose from 'mongoose'; 
-import * as dotenv from 'dotenv'; 
-import cors from 'cors';
 
 
 //hidden files
 
 dotenv.config()
  
+// testing .env connection
+
+console.log(process.env.MONGO_URI)
 
 //adding express
 
@@ -29,6 +32,7 @@ server.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     res.header("Access-Control-Allow-Methods", "*")
+    next()
 })
 
 server.use(express.urlencoded({extended: true}))

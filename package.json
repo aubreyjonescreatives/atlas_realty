@@ -8,7 +8,7 @@
     "postinstall": "cd client && npm install",
     "launch": "cd graphql && npm run launchDocker",
     "migrate": "cd graphql && npm run migrate",
-    "seed": "node seed/homesforsaleSeed.js",
+    "seed": "node data/homesforsaleData.js",
     "seed:game": "cd graphql && npm run seed:game",
     "start-dev": "concurrently --kill-others \"npm install && nodemon server.js\"",
     "test": "jest"
@@ -27,6 +27,7 @@
     "gridfs-stream": "^1.1.1",
     "helmet": "^6.0.1",
     "jsonwebtoken": "^9.0.0",
+    "mongodb": "^6.19.0",
     "mongoose": "^6.10.4",
     "morgan": "^1.10.0",
     "path": "^0.12.7"

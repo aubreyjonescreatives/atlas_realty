@@ -2,7 +2,7 @@ import axios from 'axios';
 import {HomesforSale} from '../models/homesforsale.js';
 import mongoose from 'mongoose'; 
 import * as dotenv from 'dotenv'; 
-import HFS_SEED from '../data/housesforsale.json'; 
+//import HOMES from '../data/homesforsale.json'
 dotenv.config()
 
 
@@ -20,7 +20,7 @@ const seedMongo = async () => {
 
 const options = {
     method: 'GET', 
-    url: `${HFS_SEED}`
+    url: `${process.env.DATA}`
 }
 try {
     const response = await axios.request(options)
