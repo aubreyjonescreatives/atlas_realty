@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 
 
-const homesforsaleSchema = new Schema ({
+const homesforsaleSchema = new Schema({
     name: {
         type: String, 
         required: false
@@ -33,7 +33,7 @@ const homesforsaleSchema = new Schema ({
     id: {
         type: String,
         required: false
-    }, 
+    } 
 })
 
-export const HomesforSale = mongoose.model('homesforsale.js', homesforsaleSchema)
+export const HomesforSale = mongoose.model('HomesforSale', homesforsaleSchema)

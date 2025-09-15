@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv';
 import express from 'express'; 
 import mongoose from 'mongoose'; 
 import cors from 'cors';
+import { homesforsaleRouter } from './routes/homesforsale.route.js';
 //import path from 'path';
 //import helmet from 'helmet'; 
 //import compression from 'compression'; 
@@ -13,15 +14,15 @@ dotenv.config()
  
 // testing .env connection
 
-console.log(process.env.MONGO_URI)
+console.log(process.env.MONGO_URI);
 
 //adding express
 
-const server = express()
+const server = express();
 
 //CORS Issues Resolution: 
 
-server.use(cors())
+server.use(cors());
 
 server.use(cors({
     origin: '*', 
@@ -47,10 +48,10 @@ server.use(express.static('public'))
 
 //homesAPIRouter
 
-//server.use('/homesforsale', homesForSaleRouter)
+server.use('/homesforsale', homesforsaleRouter)
 
 
-//if Page Not Found: 
+//If Page Not Found: 
 
 server.use((req, res, next) => {
     res.status(404).send('<h1>Page Not Found</h1>')
@@ -60,9 +61,10 @@ server.use((req, res, next) => {
 // MongoDB :) in a try/catch promise
 
 
-const port = process.env.PORT;
 
-mongoose.set('strictQuery', false)
+mongoose.set('strictQuery', false);
+
+const port = process.env.PORT;
 
 mongoose.connect(process.env.DB_CONN_STRING, {
     useNewUrlParser: true, 
